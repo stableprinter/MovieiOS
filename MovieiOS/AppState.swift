@@ -16,7 +16,7 @@ final class AppState: ObservableObject {
 
     init() {
         let manager = FlutterEngineManager()
-        manager.initialize(apiToken: AppConfig.apiToken, userId: AppConfig.userId)
+        manager.initialize()  // Reads config from ci_brand.xcconfig via Info.plist
 
         let viewModel = MainTabViewModel(engineManager: manager)
 

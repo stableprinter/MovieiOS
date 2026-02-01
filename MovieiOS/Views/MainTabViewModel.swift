@@ -35,8 +35,7 @@ final class MainTabViewModel: ObservableObject {
         let engine = engineManager.createExtraEngine(
             engineId: engineId,
             entrypoint: Constants.Navigation.entryBrowse,
-            initRoute: "\(Constants.Navigation.movieDetailRoutePrefix)\(movieId)",
-            args: [AppConfig.apiToken, AppConfig.userId]
+            initRoute: "\(Constants.Navigation.movieDetailRoutePrefix)\(movieId)"
         )
 
         MethodChannelHandler.register(

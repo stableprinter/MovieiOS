@@ -29,7 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BC4DE9462F2F347D00BC71CE /* MovieiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC4DE9462F2F347D00BC71CE /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = .app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4DE9532F2F350000BC71CE /* Flutter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = "Flutter/$(CONFIGURATION)/Flutter.xcframework"; sourceTree = SOURCE_ROOT; };
 		BC4DE9542F2F350000BC71CE /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = "Flutter/$(CONFIGURATION)/App.xcframework"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -68,7 +68,7 @@
 		BC4DE9472F2F347D00BC71CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BC4DE9462F2F347D00BC71CE /* MovieiOS.app */,
+				BC4DE9462F2F347D00BC71CE /* .app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 			packageProductDependencies = (
 			);
 			productName = MovieiOS;
-			productReference = BC4DE9462F2F347D00BC71CE /* MovieiOS.app */;
+			productReference = BC4DE9462F2F347D00BC71CE /* .app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -172,6 +172,8 @@
 /* Begin XCBuildConfiguration section */
 		BC4DE94F2F2F347E00BC71CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = BC4DE9482F2F347D00BC71CE /* MovieiOS */;
+			baseConfigurationReferenceRelativePath = ci/ci_brand.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -233,6 +235,8 @@
 		};
 		BC4DE9502F2F347E00BC71CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = BC4DE9482F2F347D00BC71CE /* MovieiOS */;
+			baseConfigurationReferenceRelativePath = ci/ci_brand.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -286,11 +290,15 @@
 		};
 		BC4DE9522F2F347E00BC71CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = BC4DE9482F2F347D00BC71CE /* MovieiOS */;
+			baseConfigurationReferenceRelativePath = ci/ci_brand.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BXA4QHLUYZ;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -314,8 +322,10 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fastwork.MovieiOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(APP_DISPLAY_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = devmovieios;
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -332,11 +342,15 @@
 		};
 		BC4DE9532F2F347E00BC71CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = BC4DE9482F2F347D00BC71CE /* MovieiOS */;
+			baseConfigurationReferenceRelativePath = ci/ci_brand.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BXA4QHLUYZ;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -360,8 +374,10 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fastwork.MovieiOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(APP_DISPLAY_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = devmovieios;
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

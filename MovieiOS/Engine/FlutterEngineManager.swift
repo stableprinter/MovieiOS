@@ -33,19 +33,23 @@ final class FlutterEngineManager {
     }
 
     /// Initializes Flutter and creates both Browse and Favorite engines.
-    /// Must be called before using engines.
-    func initialize(apiToken: String, userId: String) {
+    /// Reads config from ci_brand.xcconfig via Info.plist and injects into Flutter.
+    /// Args passed to Flutter: [apiToken, userId, baseUrl, appName, imageBaseUrl]
+    func initialize() {
         engineGroup = FlutterEngineGroup(name: "movie_group", project: nil)
+        
+        // Config args from xcconfig, matching Android pattern
+        let configArgs = AppConfig.flutterEngineArgs
 
         let browseEngine = createEngine(
             entrypoint: Constants.Navigation.entryBrowse,
             initRoute: "/",
-            args: [apiToken, userId]
+            args: configArgs
         )
         let favoriteEngine = createEngine(
             entrypoint: Constants.Navigation.entryFavorite,
             initRoute: "/",
-            args: [apiToken, userId]
+            args: configArgs
         )
 
         lock.lock()
@@ -57,13 +61,17 @@ final class FlutterEngineManager {
     /// Creates and caches an engine for Extra (movie detail) screen.
     /// Engine is displayed based on initRoute (e.g. /movie:true:123).
     /// Must use unique engineId per navigation to avoid race conditions.
+    /// Uses config args from ci_brand.xcconfig, matching Android pattern.
     func createExtraEngine(
         engineId: String,
         entrypoint: String,
-        initRoute: String,
-        args: [String]
+        initRoute: String
     ) -> FlutterEngine {
-        let engine = createEngine(entrypoint: entrypoint, initRoute: initRoute, args: args)
+        let engine = createEngine(
+            entrypoint: entrypoint,
+            initRoute: initRoute,
+            args: AppConfig.flutterEngineArgs
+        )
         lock.lock()
         cachedEngines[engineId] = engine
         lock.unlock()
