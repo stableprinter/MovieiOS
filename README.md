@@ -1,12 +1,21 @@
 # MovieiOS
 
-Native iOS (Swift) app that embeds the Flutter module from `movie_core`. Recreates the Movie Android app architecture with multiple Flutter engines.
+iOS Super App that serves as a container for rendering Flutter modules and facilitating inter-module communication via method and event channels.
+
+## Overview
+
+This is a **super app architecture** where:
+- **No business logic**: The app contains only UI logic for switching between Flutter engines
+- **Flutter module container**: Renders every Flutter module in the app
+- **Inter-module communication**: Enables Flutter modules to communicate with each other via method channels and event channels
+- **Multi-client support**: All branding and configuration parameters are injectable via Jenkins for scaling to multiple clients/co-brands
 
 ## Architecture
 
 - **Main screen**: Bottom tab bar with Browse and Favorite tabs. Each tab hosts a full-screen Flutter view.
 - **Extra screen**: Movie detail launched when tapping a movie from the Favorite list. Uses a dynamically created Flutter engine.
 - **Flutter engines**: `browse_engine` and `favorite_engine` are cached at launch. Extra engines are created per movie navigation and disposed when the screen is dismissed.
+- **Channel communication**: Method channels (`com.movie.android/channel`) and event channels (`com.movie.android/events`) enable communication between Flutter modules and native iOS code.
 
 ## Prerequisites
 
@@ -49,18 +58,29 @@ The project is already configured to use `$(PROJECT_DIR)/Flutter/$(CONFIGURATION
 
 **Important**: Always use `Flutter.xcframework` and `App.xcframework` from the **same** build mode. Mixing Debug/Release causes runtime crashes.
 
-### 3. LLDB Init (optional, for debugging on iOS 16+)
+## Multi-Client Branding & Configuration
 
-To avoid crashes when debugging:
+All branding and configuration parameters are injected at build time via Jenkins through `ci/ci_brand.xcconfig`. This enables the same codebase to support multiple clients/co-brands without code changes.
 
-1. Run `flutter build ios-framework --output=../MovieiOS/Flutter` (generates LLDB files)
-2. In Xcode: **Product → Scheme → Edit Scheme → Run**
-3. Set **LLDB Init File** to: `$(PROJECT_DIR)/Flutter/flutter_lldbinit`
+### Branding Parameters (injectable via Jenkins)
 
-## Channel names (must match Android)
+- `APP_DISPLAY_NAME` - App display name
+- `PRODUCT_BUNDLE_IDENTIFIER` - Bundle identifier
+- `BASE_URL` - API base URL
+- `IMAGE_BASE_URL` - Image CDN base URL
+- `WEBSOCKET_URL` - WebSocket connection URL
+- `DEEP_LINK_SCHEME` - Deep link URL scheme
+- `SUPPORT_EMAIL` - Support email address
+- Custom fonts (`brand.ttf`) - Copied by Jenkins build process
 
-- **Method channel**: `com.movie.android/channel`
-- **Event channel**: `com.movie.android/events`
+These values are automatically injected into `Info.plist` and passed to Flutter engines as initialization arguments, ensuring each client build has the correct branding and configuration.
+
+## Channel Communication
+
+- **Method channel**: `com.movie.android/channel` - Bidirectional communication between Flutter modules and native iOS
+- **Event channel**: `com.movie.android/events` - Native-to-Flutter event streaming for inter-module communication
+
+Channel names must match Android implementation for cross-platform consistency.
 
 ## Run
 
