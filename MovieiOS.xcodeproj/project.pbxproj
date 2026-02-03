@@ -29,14 +29,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BC4DE9462F2F347D00BC71CE /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = .app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC4DE9462F2F347D00BC71CE /* CineverseMax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineverseMax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4DE9532F2F350000BC71CE /* Flutter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = "Flutter/$(CONFIGURATION)/Flutter.xcframework"; sourceTree = SOURCE_ROOT; };
 		BC4DE9542F2F350000BC71CE /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = "Flutter/$(CONFIGURATION)/App.xcframework"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BC739E972F319A6A004B09F2 /* Exceptions for "MovieiOS" folder in "MovieiOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BC4DE9452F2F347D00BC71CE /* MovieiOS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BC4DE9482F2F347D00BC71CE /* MovieiOS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BC739E972F319A6A004B09F2 /* Exceptions for "MovieiOS" folder in "MovieiOS" target */,
+			);
 			path = MovieiOS;
 			sourceTree = "<group>";
 		};
@@ -68,7 +81,7 @@
 		BC4DE9472F2F347D00BC71CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BC4DE9462F2F347D00BC71CE /* .app */,
+				BC4DE9462F2F347D00BC71CE /* CineverseMax.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,7 +125,7 @@
 			packageProductDependencies = (
 			);
 			productName = MovieiOS;
-			productReference = BC4DE9462F2F347D00BC71CE /* .app */;
+			productReference = BC4DE9462F2F347D00BC71CE /* CineverseMax.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -307,6 +320,7 @@
 					"$(PROJECT_DIR)/Flutter/$(CONFIGURATION)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieiOS/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -359,6 +373,7 @@
 					"$(PROJECT_DIR)/Flutter/$(CONFIGURATION)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieiOS/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

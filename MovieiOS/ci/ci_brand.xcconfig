@@ -7,8 +7,8 @@
 // Core app identity
 // ===========================
 
-PRODUCT_BUNDLE_IDENTIFIER = com.cineverse.movies
-APP_DISPLAY_NAME = Cineverse
+PRODUCT_BUNDLE_IDENTIFIER = com.cineversemax.movies
+APP_DISPLAY_NAME = CineverseMax
 
 
 // ===========================
