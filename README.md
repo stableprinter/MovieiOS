@@ -2,6 +2,12 @@
 
 iOS Super App that serves as a container for rendering Flutter modules and facilitating inter-module communication via method and event channels.
 
+## Screenshots
+
+| 1 | 2 | 3 | 4 |
+|---|---|---|---|
+| ![Screenshot 1](Screenshots/1.png) | ![Screenshot 2](Screenshots/2.png) | ![Screenshot 3](Screenshots/3.png) | ![Screenshot 4](Screenshots/4.png) |
+
 ## Overview
 
 This is a **super app architecture** where:
@@ -61,6 +67,8 @@ The project is already configured to use `$(PROJECT_DIR)/Flutter/$(CONFIGURATION
 ## Multi-Client Branding & Configuration
 
 All branding and configuration parameters are injected at build time via Jenkins through `ci/ci_brand.xcconfig`. This enables the same codebase to support multiple clients/co-brands without code changes.
+
+**Realistic mocking**: Full branding details, assets (logos, fonts, splash screens), and configuration (bundle IDs, API endpoints, colors, etc.) can be found in the [brand repository](https://github.com/stableprinter/brand). It contains `staging.json`, `production.json`, and environment-specific assets under `asset/` for multi-client builds. You can override `ci/ci_brand.xcconfig` with values from the brand repo for local development and realistic mocking.
 
 ### Branding Parameters (injectable via Jenkins)
 
